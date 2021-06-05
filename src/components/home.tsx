@@ -1,9 +1,12 @@
 import React from 'react';
+import {DivGlobal} from './styled'
 
 const Home: React.FC = () => {
   return (
     <main>
-       home
+       <DivGlobal>
+         
+       </DivGlobal>
     </main>
   );
 }

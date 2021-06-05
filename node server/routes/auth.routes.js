@@ -12,6 +12,7 @@ router.post('/register',
       check('password', 'Минимальная длина пароля 6 символов').isLength({min: 6,max: 56})
    ],
    async(req,res)=>{
+      res.set('Access-Control-Allow-Origin', '*')
    try{
       const errors = validationResult(req)
       if(!errors.isEmpty()){
@@ -49,8 +50,8 @@ async(req,res)=>{
          return res.status(400).json({errors: errors.array(), message: 'Некорректные данные при входе'})
       }
    
-   const {email,login,password} = req.body
-   const user =  await User.findOne({email,login})
+   const {email,password} = req.body
+   const user =  await User.findOne({email})
 
       if(!user){
          return res.status(404).json({message: 'Пользователь не найден'})

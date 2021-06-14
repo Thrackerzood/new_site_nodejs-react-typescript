@@ -1,55 +1,54 @@
-import React, { useContext } from 'react';
-import {BrowserRouter as Router, Link, Route, Switch,Redirect} from 'react-router-dom'
-import Home from './home'
-import Random from './random'
-import Top from './top'
-import Sing from './sing'
-import {Ul, Header} from './styled'
-import { AuthContext } from '../context/context';
+import React from 'react'
+import {BrowserRouter as Router, Switch, Route, NavLink, Redirect} from 'react-router-dom'
+import Home from '../components/home'
+import New from '../components/new'
+import Random from '../components/random'
+import Auth from '../components/auth'
+import Account from '../components/account'
+import {Header} from './style'
 
-const Nav: React.FC<any>= isAuthenticated => {
-   const auth = useContext(AuthContext)
-   const logoutHandler:any = (event:any) =>{
-      auth.logout()
-   }
- if(!isAuthenticated){
-    return(<Router>
-               <Header>
-                  <Ul>
-                     <li><Link to="/">Домашняя</Link></li>
-                     <li><Link to="/random">Рандомное</Link></li>
-                     <li><Link to="/top">Топ</Link></li>
-                     <li><Link to="/auth">Вход</Link></li>
-                  </Ul>
-               </Header>
-            <Switch>     
-               <Route path="/random" exact><Random /></Route>
-               <Route path="/auth" exact><Sing /></Route>
-               <Route path="/top" exact><Top /></Route>
-               <Route path="/" exact><Home /></Route>
-               <Redirect to="/"/>
-            </Switch>
-            </Router>)
+const Nav:React.FC<any> = (isAuth: {}) =>{
+if(!isAuth){
+return (<Router>
+<Header>
+<nav>
+   <ul>
+      <li><NavLink to="/" exact>Главная</NavLink></li>
+      <li><NavLink to="/new" exact>Новинки</NavLink></li>
+      <li><NavLink to="/random" exact>Случайное</NavLink></li>
+      <li><NavLink to="/auth" exact>Войти</NavLink></li>
+   </ul>
+</nav>
+</Header>
+<Switch>
+   <Route path="/auth"> <Auth/>  </Route>
+   <Route path="/new">  <New/>   </Route>
+   <Route path="/random">  <Random/>   </Route>
+   <Route path="/">  <Home/>  </Route>
+</Switch>
+</Router>)     
 }
-   return(<Router>
-      <Header>
-         <Ul>
-            <li><Link to="/">Домашняя</Link></li>
-            <li><Link to="/random">Рандомное</Link></li>
-            <li><Link to="/top">Топ</Link></li>
-            <li><Link to="/account:id">Аккаунт</Link></li>
-            <li><a href="/" onClick={logoutHandler}>Выйти</a></li>
-         </Ul>
-      </Header>
-   <Switch>     
-      <Route path="/random" exact><Random /></Route>
-      <Route path="/account" exact><Sing /></Route>
-      <Route path="/top" exact><Top /></Route>
-      <Route path="/" exact><Home /></Route>
-      <Redirect to="/"/>
-   </Switch>
-   </Router>)
+return (<Router>
+<Header>
+<nav>
+   <ul>
+      <li><NavLink to="/" exact>Главная</NavLink></li>
+      <li><NavLink to="/new" exact>Новинки</NavLink></li>
+      <li><NavLink to="/random" exact>Случайное</NavLink></li>
+      <li><NavLink to="/account" exact>Аккаунт</NavLink></li>
+      <a href="/" >Выйти</a>
+   </ul>
+</nav>
+</Header>
+<Switch>
+   <Route path="/new">  <New/>   </Route>
+   <Route path="/random">  <Random/>   </Route>
+   <Route path="/account">  <Account/>  </Route>
+   <Route path="/">  <Home/>  </Route>
+   <Redirect to="/"/>
+</Switch>
+
+</Router>)
 }
- 
 
 export default Nav;

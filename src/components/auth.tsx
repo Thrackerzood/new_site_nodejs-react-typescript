@@ -1,11 +1,11 @@
 import React from 'react'
 import {Main} from './style'
 
-const Random:React.FC = () =>
+const Auth:React.FC = () =>
 (
   <Main>
-  random
+  Auth
   </Main>
 )
 
-export default Random;
+export default Auth;

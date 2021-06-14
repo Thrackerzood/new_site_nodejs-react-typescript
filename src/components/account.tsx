@@ -1,11 +1,11 @@
 import React from 'react'
 import {Main} from './style'
 
-const Random:React.FC = () =>
+const Account:React.FC = () =>
 (
   <Main>
-  random
+  Account
   </Main>
 )
 
-export default Random;
+export default Account;

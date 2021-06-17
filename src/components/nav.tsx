@@ -8,43 +8,48 @@ import Account from '../components/account'
 import {Header} from './style'
 
 const Nav:React.FC<any> = (isAuth: {}) =>{
+function click(event:any){
+   event.target.classList.toggle("target")
+}
 if(!isAuth){
 return (<Router>
 <Header>
 <nav>
-   <ul>
+   <ul onClick={click} className="target">
       <li><NavLink to="/" exact>Главная</NavLink></li>
       <li><NavLink to="/new" exact>Новинки</NavLink></li>
       <li><NavLink to="/random" exact>Случайное</NavLink></li>
-      <li><NavLink to="/auth" exact>Войти</NavLink></li>
-   </ul>
+      <li><NavLink to="/auth" exact>Войти</NavLink></li> 
+   </ul>  
 </nav>
 </Header>
 <Switch>
-   <Route path="/auth"> <Auth/>  </Route>
-   <Route path="/new">  <New/>   </Route>
-   <Route path="/random">  <Random/>   </Route>
-   <Route path="/">  <Home/>  </Route>
+   <Route path="/auth"><Auth/></Route>
+   <Route path="/new"><New/></Route>
+   <Route path="/random"><Random/></Route>
+   <Route path="/"><Home/></Route>
 </Switch>
 </Router>)     
 }
 return (<Router>
 <Header>
 <nav>
-   <ul>
+   <ul onClick={click} className="target">
       <li><NavLink to="/" exact>Главная</NavLink></li>
       <li><NavLink to="/new" exact>Новинки</NavLink></li>
       <li><NavLink to="/random" exact>Случайное</NavLink></li>
       <li><NavLink to="/account" exact>Аккаунт</NavLink></li>
-      <a href="/" >Выйти</a>
+      <div>
+      <li><a href="/">Выйти</a></li>
+      </div>
    </ul>
-</nav>
+</nav> 
 </Header>
 <Switch>
-   <Route path="/new">  <New/>   </Route>
-   <Route path="/random">  <Random/>   </Route>
-   <Route path="/account">  <Account/>  </Route>
-   <Route path="/">  <Home/>  </Route>
+   <Route path="/new"><New/></Route>
+   <Route path="/random"><Random/></Route>
+   <Route path="/account"><Account/></Route>
+   <Route path="/"><Home/></Route>
    <Redirect to="/"/>
 </Switch>
 

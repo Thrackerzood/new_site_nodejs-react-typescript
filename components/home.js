@@ -2,7 +2,7 @@ const {Router} = require('express')
 const router = Router()
 const mysql = require("mysql2");
 
-router.post('/api/home',(req,res)=>{
+router.post('/',(req,res)=>{
    const connection = mysql.createConnection({
       host: "localhost",
       user: "root",
@@ -26,7 +26,7 @@ router.post('/api/home',(req,res)=>{
             console.log('Подключение закрыто')
       })
    }).catch( err => {
-      console.log(err)
+      console.log('err: ', err)
       connection.end( err => {
          if(err) rejects(err)
             console.log('Подключение закрыто')

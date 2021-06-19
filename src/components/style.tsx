@@ -6,6 +6,9 @@ export const GlobalStyle = createGlobalStyle
    margin: 0;
    padding: 0;
 }
+a{
+   text-decoration: none;
+}
 body{
    background: #E0E2E5;
 }
@@ -90,9 +93,35 @@ nav{
 `
 export const Main = styled.main
 `
+>p{
+      max-width: 1000px;
+      text-align: center;  
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      font-weight: 600;
+      font-size: 18px;
+      padding: 35px;
+      margin: 0 auto;
+}
+div{
+   >p{
+      border-top: 1px solid;
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      font-weight: 600;
+      font-size: 20px;
+      text-align: start;
+      padding: 30px;
+   }
+}
+@media(max-width: 425px){
+   div{
+      >p{
+         display: none;
+      }
+   }
+}
 margin: 50px auto;
-min-height: 100vh;
-max-width: 1200px;
+min-height: 200vh;
+max-width: 1162px;
 background: #FFFFFF;
 `
 export const FooterStyle = styled.footer
@@ -112,6 +141,9 @@ background: rgb(240, 245, 245);
 ::-webkit-scrollbar {
    height: 10px;
 }
+@media(max-width: 425px){
+      display: none;
+}
 &:active{
    cursor: grabbing;
 }
@@ -129,6 +161,7 @@ section{
    }
 img{
    height: calc(100vh / 5);
+   min-height: 200px;
    margin: 15px;
    border: 6px solid white;
    box-shadow: 5px 5px 5px -5px rgba(77, 77, 77, 0.6);
@@ -153,6 +186,20 @@ padding: 25px;
 `
 export const SectionAuth = styled.section
 `
+>section{
+   display: flex;
+   justify-content: space-around;
+   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+   font-family: 'Roboto', sans-serif;
+   padding: 20px;
+   font-weight: 600;
+   .active{
+      color: red;
+   }   
+   p{
+      cursor: pointer;
+   }
+}
 height: 600px;
 position: relative;
 background: white;
@@ -166,6 +213,7 @@ flex-direction: column;
    box-shadow: 0px 0px 0px 2px green;
 }
 div{
+   min-height: 400px;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -211,6 +259,104 @@ div{
       :hover{
          background: rgb(71, 107, 107);
       }
+   }
+}
+`
+export const SectionSing = styled.section
+`
+>section{
+   display: flex;
+   justify-content: space-around;
+   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+   font-family: 'Roboto', sans-serif;
+   padding: 20px;
+   font-weight: 600;
+   .active{
+      color: red;
+   }
+   p{
+      cursor: pointer;
+   }
+}
+height: 600px;
+position: relative;
+background: white;
+display: flex;
+justify-content: center;
+flex-direction: column;
+
+div{
+   min-height: 400px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   @media(max-width: 425px){
+      input{
+         :focus{
+            max-width: 100% !important;
+            box-shadow: 0px 0px 0px 2px rgba(0, 98, 255, 0.6);
+         }
+      }
+   }
+}
+   input{
+      width: 240px;
+      font-size: 16px;
+      padding:  10px;
+      border: none;
+      outline: none;
+      border: 1px solid grey;
+      border-radius: 4px;
+      margin: 20px 0;
+      ::-webkit-input-placeholder {
+         text-align: center;
+      }
+      :focus{
+         border: 1px solid black;
+         box-shadow: 0px 0px 0px 2px rgba(0, 98, 255, 0.6);
+         width: 240px;
+      }
+   }
+   button{
+      margin: 20px;
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+      font-family: 'Roboto', sans-serif;
+      color: white;
+      border-radius: 15px;
+      padding: 10px 45px;
+      outline: none;
+      border: none;
+      background: rgb(102, 153, 153);
+      transition: .5s;
+      :hover{
+         background: rgb(71, 107, 107);
+      }
+   }
+}
+`
+
+export const Data2 = styled.div
+`
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+a{
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+      font-family: 'Roboto', sans-serif;
+}
+div{
+   height: 100%;
+   margin: 20px;
+
+   text-align: center;
+img{
+   height: 300px;
+}
+section{
+   height: 300px;
+   width: 220px;
+   background: rgb(230,230,230);
    }
 }
 `
